@@ -1,0 +1,64 @@
+
+
+<mat-toolbar color="">
+Dazzid
+  <ng-container
+    *ngIf="authService.currentUser$ | async as user; else loginButton"
+  >
+  
+    <button mat-button [matMenuTriggerFor]="userMenu">
+      <img
+        width="30"
+        height="30"
+        class="profile-image-toolbar"
+        [src]="user.photoURL ?? 'assets/images/image-placeholder.png'"
+      />
+      {{ user.displayName }}
+      <mat-icon>expand_more</mat-icon>
+    </button>
+  </ng-container>
+  <ng-template #loginButton>
+    <button mat-button routerLink="login">
+      <mat-icon>login</mat-icon>
+      Login
+    </button>
+  </ng-template>
+</mat-toolbar>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+
+<mat-menu #userMenu="matMenu">
+  <button mat-menu-item routerLink="/profile">
+    <mat-icon>account_circle</mat-icon>
+    Profile
+  </button>
+  <button mat-menu-item routerLink="/home">
+    <mat-icon>dashboard</mat-icon>
+    Dashboard
+  </button>
+ 
+  <button mat-menu-item routerLink="/academico">
+    <mat-icon>school</mat-icon>
+    Perfil Académico
+  </button>
+  <button mat-menu-item routerLink="/medico">
+    <mat-icon>healing</mat-icon>
+    Perfil Médico
+  </button>
+  <button mat-menu-item routerLink="/laboral">
+    <mat-icon>work</mat-icon>
+    Perfil Laboral
+  </button>
+  <button mat-menu-item routerLink="/dazzid">
+    <mat-icon>fingerprint</mat-icon>
+    Perfil Dazzid
+  </button>
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>logout</mat-icon>
+    Logout
+  </button>
+</mat-menu>
+
+

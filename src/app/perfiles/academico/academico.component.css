@@ -1,0 +1,23 @@
+#inputFile{
+  display: none;
+}
+.labelInputFile{
+display: none;
+border-radius: 60;
+margin-right: 3px;
+
+}
+
+
+.example-card {
+  max-width: 400px;
+  border-radius: 20;
+  
+}
+
+.example-header-image {
+  background-image: url("https://gateway.pinata.cloud/ipfs/QmPJhsCwTubrJUDEFignLxVhAvezon2um2kCvQeL3844TZ");
+  background-size: cover;
+}
+
+

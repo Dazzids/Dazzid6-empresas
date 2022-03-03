@@ -1,0 +1,195 @@
+<div class="mt-5">
+  <div class="titulo text-center">
+  <ng-container  *ngIf="user$ | async as user">
+      <h1><b>Bienvenido al Dashboard, {{user.displayName}}!</b></h1>
+  </ng-container>
+  </div>
+  
+  <div class=" text-center">
+      <div class="subtitulo">
+      <p>En esta página encontrarás toda la información relacionada</p>
+      <p>a tus perfiles digitales.</p>
+      
+  
+  <!-- Mat Cards-->
+  
+  <style>
+  
+     .titulo{
+       margin-top: 20px;
+     }
+     .subtitulo {    
+    
+      color: rgb(31, 31, 31);
+      overflow: hidden;
+  }
+    
+      .content {
+        display: flex;
+        margin: 82px auto 32px;
+        padding: 0 16px;
+        max-width: 960px;
+        flex-direction: column;
+        align-items: center;
+        left: 10%
+      }
+    
+      svg.material-icons {
+        height: 24px;
+        width: auto;
+      }
+    
+      svg.material-icons:not(:last-child) {
+        margin-right: 8px;
+      }
+    
+      .card svg.material-icons path {
+        fill: #888;
+      }
+    
+      .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        margin-top: 16px;
+        left:5px;
+      }
+    
+      .card {
+        all: unset;
+        border-radius: 4px;
+        border: 1px solid #eee;
+        background-color: #fafafa;
+        height: 60px;
+        width: 200px;
+        margin: 0 8px 16px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.2s ease-in-out;
+        line-height: 24px;
+      }
+    
+      .card-container .card:not(:last-child) {
+        margin-right: 0;
+      }
+    
+      .card.card-small {
+        height: 16px;
+        width: 168px;
+      }
+    
+      .card-container .card:not(.highlight-card) {
+        cursor: pointer;
+      }
+    
+      .card-container .card:not(.highlight-card):hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+      }
+    
+      .card-container .card:not(.highlight-card):hover .material-icons path {
+        fill: rgb(105, 103, 103);
+      }
+    
+      .card.highlight-card {
+        background-color: #1976d2;
+        color: white;
+        font-weight: 600;
+        border: none;
+        width: auto;
+        min-width: 30%;
+        position: relative;
+      }
+    
+      .card.card.highlight-card span {
+        margin-left: 60px;
+      }
+    
+      footer {
+        margin-top: 8px;
+        display: flex;
+        align-items: center;
+        line-height: 20px;
+      }
+    
+      footer a {
+        display: flex;
+        align-items: center;
+      }
+    
+     
+    
+      /* Responsive Styles */
+      @media screen and (max-width: 767px) {
+        .card-container > *:not(.circle-link) ,
+        .terminal {
+          width: 100%;
+        }
+    
+        .card:not(.highlight-card) {
+          height: 16px;
+          margin: 8px 0;
+        }
+    
+        .card.highlight-card span {
+          margin-left: 72px;
+        }
+    
+        svg#rocket-smoke {
+          right: 120px;
+          transform: rotate(-5deg);
+        }
+      }
+    
+      @media screen and (max-width: 575px) {
+        svg#rocket-smoke {
+          display: none;
+          visibility: hidden;
+        }
+      }
+    </style>
+  
+  <div class="card-container">
+  
+      <a class="card"  routerLink="/profile">
+        <mat-icon  color="accent">account_circle</mat-icon>    
+        <span>Perfil Personal</span>
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>    </a>
+     
+        <a class="card" target="_blank" rel="noopener" routerLink="/medico">
+        <mat-icon routerLink="medico" color="accent">healing</mat-icon>    
+          <span> Perfil Médico </span>
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>    
+   
+      </a>
+  
+      <a class="card" target="_blank" rel="noopener" routerLink="/academico">
+        <mat-icon routerLink="academico" color="accent">school</mat-icon>    
+        <span>Perfil Académico</span>
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </a>
+  
+      <a class="card" target="_blank" rel="noopener" routerLink="/laboral">
+        <mat-icon routerLink="lab" color="accent">work</mat-icon>    
+          <span> Perfil Laboral</span>
+          
+          <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+        </a>
+      <a class="card" target="_blank" rel="noopener" routerLink="/habilidades" hidden> 
+        <mat-icon routerLink="habilidades" color="accent">build</mat-icon>    
+        <span>Perfil de Habilidades</span>
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </a>
+  
+      <a class="card" target="_blank" rel="noopener" routerLink="/dazzid">
+        <mat-icon routerLink="dazzid" color="accent">fingerprint</mat-icon>    
+        <span>Perfil Dazzid</span>
+        
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </a>
+  
+  
+  

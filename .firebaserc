@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "userdazzid-b65be",
+    "login": "userdazzid-b65be",
+    "hosting":"userdazzid-b65be"
+    
+  },
+  "targets": {
+    "angular-sign-up": {
+      "hosting": {
+        "angular-sign-up": [
+          "angular-sign-up"
+        ]
+      }
+    }
+  }
+}

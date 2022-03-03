@@ -1,0 +1,50 @@
+             
+        <div class="container pt-4">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h3>{{ titulo }}
+                    <h3>Agregar Credencial
+                        <div *ngIf="loading" class="spinner-border float-right" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                      </div></h3>
+                    
+                    <span *ngIf="submitted && createEmpleado.invalid" class="badge badge-danger">TODOS LOS CAMPOS SON OBLIGATORIOS</span>
+                    <form class="mt-4" [formGroup]="createEmpleado"   (ngSubmit)="agregarEditarEmpleado()"   
+
+                    >
+                        <div class="row">
+                            <div class="col" >
+                                <input type="text" class="form-cotrol form-control-lg mt-3" formControlName="nombre" 
+                                       placeholder="Nombre">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-cotrol form-control-lg mt-3" formControlName="apellidoPaterno"
+                                       placeholder="Apellido Paterno">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-cotrol form-control-lg mt-3" formControlName="apellidoMaterno"
+                                       placeholder="Apellido Materno">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-cotrol form-control-lg mt-3" formControlName="fechaDeNacimiento"
+                                       placeholder="Fecha de Nacimiento">
+                            </div>
+                          
+                            <div class="col">
+                                <input type="text" class="form-cotrol form-control-lg mt-3" formControlName="documento" placeholder="Documento">
+                                <div>
+                                <input type="text" class="form-cotrol form-control-lg mt-3" formControlName="folio" placeholder="Folio">
+                               <div class="mt-3">
+                              
+                                <button type="text" class="btn btn-secondary btn-lg mr-3" routerLink="/list-empleados">Volver</button>
+                                <button type="submit" class="btn btn-dark btn-lg">Agregar</button>
+
+                            </div>
+
+                            </div>
+                            </div>
+                        </div>
+                    </form>
+        

@@ -1,0 +1,28 @@
+<div class="mt-5">
+
+
+<div class="form-container mat-elevation-z5">
+  <h1>Login</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="submit()">
+    <mat-form-field>
+      <input matInput placeholder="Email address" formControlName="email" />
+      <mat-error *ngIf="email?.errors?.['required']">
+        Ingresa un email valido
+      </mat-error>
+      <mat-error *ngIf="email?.errors?.['email']">
+        Ingresa un email valido
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password" formControlName="password" />
+      <mat-error *ngIf="password?.errors?.['required']">
+        Password es necesario
+      </mat-error>
+    </mat-form-field>
+    <div class="center margin-top">
+        <button type="submit" mat-raised-button color="$mat-purple">Login</button>
+    </div>
+    <span class="center margin-top">¿Nuevo en Dazzid? <a class="sign-up-link" routerLink="/sign-up">Sign up!</a></span>
+  </form>
+</div>
+
