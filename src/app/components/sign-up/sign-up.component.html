@@ -1,5 +1,7 @@
+<div class="mt-5">
+
 <div class="form-container mat-elevation-z5">
-  <h1>Sign Up a New User!</h1>
+  <h1>Registro de nuevo!</h1>
   <form [formGroup]="signUpForm" (ngSubmit)="submit()">
     <mat-form-field>
       <input matInput placeholder="Name" formControlName="name" />
@@ -42,7 +44,8 @@
         Passwords should match
     </mat-error>
     <div class="center margin-top">
-      <button type="submit" mat-raised-button color="$mat-purple">Sign Up!</button>
+      <button type="submit"  class="btn btn-secondary btn-lg float-end">Registrarse </button>
+
     </div>
   </form>
 </div>

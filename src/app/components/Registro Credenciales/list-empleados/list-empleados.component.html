@@ -17,7 +17,7 @@
                     <th>Apellido Materno</th>
                     <th>Fecha de Nacimiento</th>
                     <th>Documento</th>
-                    <th>Folio</th>
+                    <th>Código</th>
                     <th></th>
                   </tr>
                 </thead>
@@ -29,7 +29,7 @@
                     <td>{{empleado.fechaDeNacimiento}}</td>
 
                     <td>{{empleado.documento}}</td>
-                    <td>{{empleado.folio}}</td>
+                    <td><span class= "badge bg-black">{{empleado.codigo}}</span> </td>
                     <td>
                         <i class="fas fa-edit fa-lg text-info mr-2" [routerLink]="['/editEmpleado/', empleado.id]"></i>
                         <i (click)="eliminarEmpleado (empleado.id)" class="fas fa-trash-alt fa-lg text-danger" ></i>

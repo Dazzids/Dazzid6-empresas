@@ -1,7 +1,7 @@
-<p>academico works!</p>
-<div class="card-body">
-  <div
-  class="form-container mat-elevation-z5 text-center"
+
+<div class="card-body ">
+  <div 
+  class="form-container mat-elevation-z5 text-center "
 >
   <h1><mat-card-title>Perfil Académico</mat-card-title></h1>
 
@@ -206,12 +206,12 @@ card shiba-->
                   <th>Apellido Materno</th>
                   <th>Fecha de Nacimiento</th>
                   <th>Documento</th>
-                  <th>Folio</th>
+                  <th>Código</th>
                   <th>Credencial</th>
                   <th></th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody >
                 <tr  *ngFor="let academico of academicos">
                   <td>{{academico.nombre}}</td>
                   <td>{{academico.apellidoPaterno}}</td>
@@ -219,7 +219,7 @@ card shiba-->
                   <td>{{academico.fechaDeNacimiento}}</td>
 
                   <td>{{academico.documento}}</td>
-                  <td>{{academico.folio}}</td>
+                  <td class= "badge bg-black">{{academico.codigo}}</td>
                   <td>{{academico.credencial}}</td>
                   <td>
                       <i class="fas fa-edit fa-lg text-info mr-2" [routerLink]="['/editAcad/', academico.id]"></i>
@@ -252,9 +252,9 @@ card shiba-->
         [src]="user.photoURL ?? '/assets/images/image-placeholder.png'" ></div>
 
     <mat-card-title>{{academico.documento}}</mat-card-title>
-    <mat-card-subtitle>{{academico.folio}}</mat-card-subtitle>
+    <mat-card-subtitle>{{academico.codigo}}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image class="margin-top mat-elevation-z1" src="{{imagenes[0]}}"  alt="Documento">
+  <img  *ngIf="user$ | async as user" mat-card-image class="margin-top mat-elevation-z1" src="{{imagenes[0]}}"  alt="Documento">
   <mat-card-content>
     <p>
 Nombre: {{academico.nombre}} {{academico.apellidoPaterno}} {{academico.apellidoMaterno}}
@@ -263,7 +263,7 @@ Fecha de creación: {{academico.fechaActualizacion}}
     </p>
   </mat-card-content>
   <mat-card-actions>
-   <input  type="file" accept=".png, .jpg, .jpeg .pdf" formControlName="credencial"  multiple (change)="cargarImagen($event)" id="inputFile">
+   <input  type="file" accept=".png, .jpg, .jpeg .pdf" formControlName="credencial"  multiple (change)="cargarImagen($event)" id="inputFile" >
               <label for="inputFile"  class="btn btn-secondary">Subir</label> 
     <button type="button" class="btn btn-success ml-2 mb-2">Compartir</button>  </mat-card-actions>
 </mat-card>

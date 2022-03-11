@@ -9,13 +9,14 @@ import { HotToastService } from '@ngneat/hot-toast';
 import { switchMap, tap } from 'rxjs';
 import { ImageUploadService } from 'src/app/services/image-upload.service';
   import { ToastrService } from 'ngx-toastr';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { EmpleadoService } from 'src/app/services/empleado.service';
 import { stringify } from 'querystring';
 import { FileUpload } from 'src/app/models/user-profile';
 import { StoreCredService } from 'src/app/services/store-cred.service';
+import { unescapeIdentifier } from '@angular/compiler';
 
 @Component({
   selector: 'app-cred-acad',
@@ -55,7 +56,7 @@ export class CredAcadComponent implements OnInit {
         apellidoMaterno: ['', Validators.required],
         fechaDeNacimiento: ['', Validators.required],
         documento: ['', Validators.required],
-        folio: ['', Validators.required],
+        codigo: ['', Validators.required],
         credencial: ['', Validators.required],
       })
       this.id = this.aRoute.snapshot.paramMap.get("id");
@@ -158,17 +159,19 @@ export class CredAcadComponent implements OnInit {
     }
     }
     agregarAcad() {
-    const academico: any = {
+      const academico: any = {
+      
       nombre: this.createAcaCred.value.nombre,
       apellidoPaterno: this.createAcaCred.value.apellidoPaterno,
       apellidoMaterno: this.createAcaCred.value.apellidoMaterno,
       fechaDeNacimiento: this.createAcaCred.value.fechaDeNacimiento,
       documento: this.createAcaCred.value.documento,
-      folio: this.createAcaCred.value.folio,
+      codigo: this.createAcaCred.value.codigo,
       credencial: this.createAcaCred.value.credencial,
       fechaCreación: new Date(),
       fechaActualizacion: new Date(),
     }
+   
   
   
     this.loading = true;
@@ -192,10 +195,12 @@ export class CredAcadComponent implements OnInit {
       apellidoMaterno: this.createAcaCred.value.apellidoMaterno,
       fechaDeNacimiento: this.createAcaCred.value.fechaDeNacimiento,
       documento: this.createAcaCred.value.documento,
-      folio: this.createAcaCred.value.folio,
+      codigo: this.createAcaCred.value.codigo,
       credencial: this.createAcaCred.value.credencial,
       fechaCreación: new Date(),
       fechaActualizacion: new Date(),
+
+
     }
   this.loading = true;
   
@@ -221,7 +226,7 @@ export class CredAcadComponent implements OnInit {
   apellidoMaterno: data.payload.data()["apellidoMaterno"],
   fechaDeNacimiento: data.payload.data()["fechaDeNacimiento"],
   documento: data.payload.data()["documento"],
-  folio: data.payload.data()["folio"],
+  codigo: data.payload.data()["codigo"],
   credencial: data.urlImagen()["credencial"],
   
   

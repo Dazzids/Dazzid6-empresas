@@ -8,6 +8,7 @@ import {
   UserInfo,
 } from '@angular/fire/auth';
 import { concatMap, from, Observable, of, switchMap } from 'rxjs';
+import { User } from '../interfaces/User';
 
 @Injectable({
   providedIn: 'root',
@@ -17,15 +18,17 @@ export class AuthService {
 
   constructor(private auth: Auth) {}
 
-  signUp(name: string, email: string, password: string): Observable<any> {
+  signUp(name: string, email: string, password: string,): Observable<any> {
     return from(
       createUserWithEmailAndPassword(this.auth, email, password)
     ).pipe(switchMap(({ user }) => updateProfile(user, { displayName: name })));
   }
 
-  login(email: string, password: string): Observable<any> {
+  login(email: string, password: string ): Observable<any> {
     return from(signInWithEmailAndPassword(this.auth, email, password));
   }
+
+  
 
   updateProfile(profileData: Partial<UserInfo>): Observable<any> {
     const user = this.auth.currentUser;

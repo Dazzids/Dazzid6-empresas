@@ -1,0 +1,19 @@
+
+
+<div class="contenedor">
+
+    <div *ngIf="error" class="alert alert-danger" role="alert">
+<strong>Por favor ingresa PIN</strong>   
+ </div>
+    <input [(ngModel)]="pin" type="text" class="form-control input-ingresar mb-3" placeholder="PIN de credencial">
+
+    <button  (click)="ingresar()" class="btn-ingresar  btn-lg float-end btn-principal">Ingresar</button>
+
+</div>
+<div class="fixed-bottom">
+    <p class="text-center text">
+Crea tus credenciales digitales
+<a class="link" routerLink="/usuario" href="#">aqui</a>
+
+    </p>
+</div>

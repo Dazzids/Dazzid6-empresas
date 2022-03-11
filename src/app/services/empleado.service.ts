@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { orderBy } from 'firebase/firestore';
+import { orderBy, where } from 'firebase/firestore';
 import { Observable, of, from, switchMap, finalize } from 'rxjs';
 import { StorageService } from './storage.service';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
@@ -43,7 +43,7 @@ export class EmpleadoService {
     ) {}
 
    
-  agregarEmpleado(empleado: any,): Promise<any> {
+  agregarEmpleado(empleado: any): Promise<any> {
     const user = this.auth.currentUser;
 
     return this.firestore.collection("empleados").add(empleado);
@@ -78,7 +78,7 @@ return this.firestore.collection('empleados').doc(id).delete();
     const user = this.auth.currentUser;
     const storageRef = ref(this.storage);
 
-    return this.firestore.collection('academico', ref => ref.orderBy('fechaCreación', 'asc')).snapshotChanges();
+    return this.firestore.collection('academico', ref => ref.orderBy('fechaCreación', 'asc', )).snapshotChanges();
     
 
   }
@@ -86,8 +86,8 @@ return this.firestore.collection('empleados').doc(id).delete();
 return this.firestore.collection('academico').doc(id).delete();
 
   }
-  getAcad(id:string): Observable<any> {
-    return this.firestore.collection("academico").doc(id).snapshotChanges();
+  getAcad(uid:string): Observable<any> {
+    return this.firestore.collection("academico").doc(uid).snapshotChanges();
   }
   actualizarAcad(id: string, data:any): Promise<any> {
     return this.firestore.collection('academico').doc(id).update(data);
@@ -97,4 +97,7 @@ return this.firestore.collection('academico').doc(id).delete();
     
     return this.firestore.collection('academico').doc(id).update(imgBase64);
   }
+  getAcadByIdUser(uid:string): Observable<any> {
+  return this.firestore.collection("academico", ref => ref.where("uid", "==", uid)).snapshotChanges()
+}
 }

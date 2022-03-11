@@ -12,7 +12,7 @@ import { LabComponent } from './perfiles/lab/lab.component';
 import { MedComponent } from './perfiles/med/med.component';
 import { CreateEmpleadoComponent } from './components/Registro Credenciales/create-empleado/create-empleado.component';
 import { ListEmpleadosComponent } from './components/Registro Credenciales/list-empleados/list-empleados.component';
-
+import { RecuperarPasswordComponent } from './components/usuario/recuperar-password/recuperar-password.component';
 import {
   canActivate,
   redirectLoggedInTo,
@@ -20,15 +20,19 @@ import {
 } from '@angular/fire/auth-guard';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CredAcadComponent } from './components/Registro Credenciales/cred-acad/cred-acad.component';
-
+import { CrearCredencialComponent } from './components/usuario/crear-credencial/crear-credencial.component';
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
 
 const routes: Routes = [
   {
-    path: '',
-    pathMatch: 'full',
-    component: LandingComponent,
+    path: '',component: LandingComponent,
+  },
+  { path: "recuperarPassword", component: RecuperarPasswordComponent},
+
+  {
+    path: 'usuario', loadChildren: () => import('./components/usuario/usuario.module')
+      .then(m => m.UsuarioModule)
   },
   {
     path: 'login',
@@ -81,7 +85,8 @@ const routes: Routes = [
   { path: 'create-empleado', component: CreateEmpleadoComponent },
   { path: 'editEmpleado/:id', component: CreateEmpleadoComponent },
   { path: 'editAcad/:id', component: CreateEmpleadoComponent },
-  { path: 'credAcad', component: CredAcadComponent}
+  { path: 'credAcad', component: CredAcadComponent},
+  { path: "crearCredencial", component: CrearCredencialComponent}
 
 ];
 

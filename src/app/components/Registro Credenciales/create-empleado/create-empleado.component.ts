@@ -44,7 +44,7 @@ export class CreateEmpleadoComponent implements OnInit {
       apellidoMaterno: ['', Validators.required],
       fechaDeNacimiento: ['', Validators.required],
       documento: ['', Validators.required],
-      folio: ['', Validators.required]
+      codigo: ['', Validators.required]
     })
     this.id = this.aRoute.snapshot.paramMap.get("id");
   console.log(this.id)
@@ -72,7 +72,7 @@ export class CreateEmpleadoComponent implements OnInit {
       apellidoMaterno: this.createEmpleado.value.apellidoMaterno,
       fechaDeNacimiento: this.createEmpleado.value.fechaDeNacimiento,
       documento: this.createEmpleado.value.documento,
-      folio: this.createEmpleado.value.folio,
+      codigo: this.createEmpleado.value.codigo,
       fechaCreación: new Date(),
       fechaActualizacion: new Date(),
     }
@@ -96,9 +96,10 @@ export class CreateEmpleadoComponent implements OnInit {
       apellidoMaterno: this.createEmpleado.value.apellidoMaterno,
       fechaDeNacimiento: this.createEmpleado.value.fechaDeNacimiento,
       documento: this.createEmpleado.value.documento,
-      folio: this.createEmpleado.value.folio,
+      codigo: this.createEmpleado.value.codigo,
       fechaCreación: new Date(),
       fechaActualizacion: new Date(),
+
     }
 this.loading = true;
 
@@ -123,7 +124,7 @@ this.createEmpleado.setValue({
   apellidoMaterno: data.payload.data()["apellidoMaterno"],
   fechaDeNacimiento: data.payload.data()["fechaDeNacimiento"],
   documento: data.payload.file()["documento"],
-  folio: data.payload.data()["folio"],
+  codigo: data.payload.data()["codigo"],
 
 
 })

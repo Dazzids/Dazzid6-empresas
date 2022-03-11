@@ -5,11 +5,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './lab.component.html',
   styleUrls: ['./lab.component.css']
 })
-export class LabComponent implements OnInit {
+export class LabComponent {
+listaEstudiantes: any[] = [
+{ nombre: "tomas", estado: "promocionado"},
+{ nombre: "carlos", estado: "promocionado"},
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+]
 }
+

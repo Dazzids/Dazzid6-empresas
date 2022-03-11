@@ -10,7 +10,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSliderModule } from "@angular/material/slider";
 import { HttpClientModule } from '@angular/common/http';
 import { NgxDropzoneModule } from 'ngx-dropzone';
@@ -64,6 +64,9 @@ import { MedComponent } from './perfiles/med/med.component';
 import { ListEmpleadosComponent } from './components/Registro Credenciales/list-empleados/list-empleados.component';
 import { CreateEmpleadoComponent } from './components/Registro Credenciales/create-empleado/create-empleado.component';
 import { CredAcadComponent } from './components/Registro Credenciales/cred-acad/cred-acad.component';
+import { PinCredencialesComponent } from './components/pin-credenciales/pin-credenciales.component';
+import { SharedModule } from './components/shared/shared.module';
+import { CrearCredencialComponent } from './components/dashboard/crear-credencial/crear-credencial.component';
 const firebaseConfig = [
   AngularFireStorageModule,
   AngularFireModule.initializeApp(environment.firebase), // Your config
@@ -101,6 +104,8 @@ const materialModules = [
     ListEmpleadosComponent,
     CreateEmpleadoComponent,
     CredAcadComponent,
+    PinCredencialesComponent,
+    CrearCredencialComponent,
    
   
    
@@ -128,6 +133,7 @@ const materialModules = [
     MatCardModule,
     FlexLayoutModule,
     ToastrModule.forRoot(),
+    SharedModule,
    
      
     MatSelectModule,

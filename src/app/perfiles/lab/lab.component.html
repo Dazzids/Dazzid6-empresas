@@ -1,1 +1,28 @@
-<p>lab works!</p>
+<div class="container mt-4">
+
+    <div class="row">
+    
+    
+    </div>
+    <br>
+    <table class="table">
+        <thead>
+        <th>nro</th>
+        <th>nombre</th>
+        <th>estado</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let estudiante of listaEstudiantes; let i = index">
+        <td> {{ i +1 }} </td>
+        <td> {{estudiante.nombre}}</td>
+        <td> {{estudiante.estado}}</td>
+        <td><span class="badge bg-black"> MNGR</span></td>
+
+
+
+
+    </tr>
+    
+    </tbody>
+    </table>
+    </div>

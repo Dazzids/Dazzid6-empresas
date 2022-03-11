@@ -24,3 +24,12 @@
   progress::-webkit-progress-value {
     transition: width 0.1s ease;
   }
+  .btn-principal {
+    height: 3.125rem;
+    background-color: rgb(51, 51, 51);
+    border-color: rgba(0, 0, 0, 1);
+    color: white;
+    font-size: 20px;
+    font-family: "Monserrat", sans-serif;
+
+  }

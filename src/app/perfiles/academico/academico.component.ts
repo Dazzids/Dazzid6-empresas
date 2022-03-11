@@ -53,7 +53,7 @@ export class AcademicoComponent {
         apellidoMaterno: ['', Validators.required],
         fechaDeNacimiento: ['', Validators.required],
         documento: ['', Validators.required],
-        folio: ['', Validators.required]
+        folio: ['', Validators.required],
       })
       this.id = this.aRoute.snapshot.paramMap.get("id");
     console.log(this.id)
@@ -74,7 +74,11 @@ export class AcademicoComponent {
               success: 'Image uploaded successfully',
               error: 'There was an error in uploading the image',
             }),
+
+
+            
           )
+        
           .subscribe();
           
       }
@@ -149,7 +153,9 @@ export class AcademicoComponent {
     }
     }
     agregarAcad() {
-    const academico: any = {
+      const usuario: User = JSON.parse(localStorage.getItem("user") ||"()");
+      const academico: any = {
+     
       nombre: this.createAcaCred.value.nombre,
       apellidoPaterno: this.createAcaCred.value.apellidoPaterno,
       apellidoMaterno: this.createAcaCred.value.apellidoMaterno,
@@ -158,6 +164,7 @@ export class AcademicoComponent {
       folio: this.createAcaCred.value.folio,
       fechaCreación: new Date(),
       fechaActualizacion: new Date(),
+      uid: usuario.uid,
       
     }
   
@@ -178,6 +185,8 @@ export class AcademicoComponent {
   }
   
   editarAcad(id: string) {
+    const usuario: User = JSON.parse(localStorage.getItem("user") ||"()");
+
     const academico: any = {
       nombre: this.createAcaCred.value.nombre,
       apellidoPaterno: this.createAcaCred.value.apellidoPaterno,
@@ -187,6 +196,7 @@ export class AcademicoComponent {
       folio: this.createAcaCred.value.folio,
       fechaCreación: new Date(),
       fechaActualizacion: new Date(),
+      uid: usuario.uid,
       
 
     }

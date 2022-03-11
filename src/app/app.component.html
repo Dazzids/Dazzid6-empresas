@@ -1,6 +1,6 @@
 
 
-<mat-toolbar color="">
+<mat-toolbar color="primary">
 Dazzid
   <ng-container
     *ngIf="authService.currentUser$ | async as user; else loginButton"
@@ -18,9 +18,9 @@ Dazzid
     </button>
   </ng-container>
   <ng-template #loginButton>
-    <button mat-button routerLink="login">
-      <mat-icon>login</mat-icon>
-      Login
+
+    <button type="button"  class="btn-login" routerLink="login" >
+         Login
     </button>
   </ng-template>
 </mat-toolbar>
